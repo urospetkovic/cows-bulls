@@ -6,18 +6,22 @@ while len(num) < 4:
   num = list(num)
   num.append(random.randint(1, 9))
   num = set(num)
+num = list(num)
 print(num)
 run = True
 while run is True:
   answer = input('Guess a 4 digit number: ')
-  x=0
+  
   bulls = 0
   cows = 0
-  for i in answer:
-    if i[x] == num[x]:
+  for i in range(4):
+    if int(answer[i]) == num[i]:
       cows += 1
-    elif i in num:
+    elif int(answer[i]) in num:
       bulls += 1
+  
+  print('cows:', cows)
+  print('bulls:', bulls)
   if cows == 4:
     print('BINGO!')
     run = False
