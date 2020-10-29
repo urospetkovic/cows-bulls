@@ -1,0 +1,23 @@
+import random
+
+num = []
+
+while len(num) < 4:
+  num = list(num)
+  num.append(random.randint(1, 9))
+  num = set(num)
+print(num)
+run = True
+while run is True:
+  answer = input('Guess a 4 digit number: ')
+  x=0
+  bulls = 0
+  cows = 0
+  for i in answer:
+    if i[x] == num[x]:
+      cows += 1
+    elif i in num:
+      bulls += 1
+  if cows == 4:
+    print('BINGO!')
+    run = False
